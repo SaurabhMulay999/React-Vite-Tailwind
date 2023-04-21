@@ -1,3 +1,4 @@
+import AnimalList from "./AnimalsList";
 import { useState } from "react";
 
 const Search=()=>{
@@ -48,13 +49,10 @@ const Search=()=>{
                                     )
                                 })
                             }
-
-
                         </select>
-
                     </label>
                     </div>
-                    <button className="bg-blue-300 text-xs m-3 p-2 hover:text-rose-900 text-black">Submit</button>
+                    <button onClick={()=><AnimalList/>} className="bg-blue-300 text-xs m-3 p-2 hover:text-rose-900 text-black">Submit</button>
                 </form>
             </div>
 
