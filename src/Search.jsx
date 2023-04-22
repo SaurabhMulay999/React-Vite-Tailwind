@@ -1,14 +1,33 @@
 import AnimalList from "./AnimalsList";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Search=()=>{
+
     const [Location,setLocation]=useState('');
 
     const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-    const Breed= ['German','French','Indian','Latine'];
+    const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
 
-    const [breed,setBreed]=useState(Breed);
-    const [animal, setAnimal]=useState(ANIMALS);
+    const [breed,setBreed]=useState('');
+    const [animal, setAnimal]=useState('');
+
+
+    const [pets, setPets]=useState([]);
+    async function getFetchData(){
+        const data=await fetch(`https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${Location}&breed=${breed}`);
+        const JSON=await data.json();
+        setPets(JSON.pets);
+        console.log(JSON);
+
+    }
+
+    useEffect(()=>{
+        getFetchData();
+ },[animal,breed]);
+
+
+
+
     return(
         <div className="p-4 flex box-border">
             <div className="border text-center p-4 m-5 ">
@@ -20,10 +39,10 @@ const Search=()=>{
                     <label htmlFor="Animals">
                         
                         Animals :  
-                        <select  id={animal} value={animal}>
+                        <select id={animal} onChange={(e)=>setAnimal(e.target.value)} value={animal}>
             
                                {
-                                animal.map((AN)=>{
+                                ANIMALS.map((AN)=>{
 
                                     return(
                                     
@@ -39,9 +58,9 @@ const Search=()=>{
 
                     <label htmlFor="Breed">
                         Breed : 
-                        <select id={breed} value={breed}>
+                        <select onChange={(e)=>{setBreed(e.target.value)}} id={breed} value={breed}>
                             {
-                                breed.map((brd)=>{
+                                Breed.map((brd)=>{
                                     return(
                                         <option key={brd} value={brd}>
                                             {brd}
@@ -52,9 +71,26 @@ const Search=()=>{
                         </select>
                     </label>
                     </div>
-                    <button onClick={()=><AnimalList/>} className="bg-blue-300 text-xs m-3 p-2 hover:text-rose-900 text-black">Submit</button>
+                    <button onClick={()=>console.log('clicked')} className="bg-blue-300 text-xs m-3 p-2 hover:text-rose-900 text-black">Submit</button>
                 </form>
             </div>
+
+            {
+                pets.map((pet)=>{
+                    return(
+                        <div className="border flex-auto border-spacing-1 hover:animate-bounce bg-blue-100 text-align justify-center flex-row flex">
+                         <div className="w-54 grid">   
+                        <h3>Name: {pet.name}</h3>
+                        <h5>Breed :{pet.breed}</h5>
+                        <h5>City : {pet.city}</h5>
+                        <img className="w-24 h-24" src={pet.images[0]}></img>
+                        <p>State: {pet.state}</p>
+                        </div>
+                        </div>
+
+                    )
+                })
+            }
 
         </div>
     )
