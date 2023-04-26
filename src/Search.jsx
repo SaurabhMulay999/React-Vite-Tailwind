@@ -23,7 +23,7 @@ const Search=()=>{
 
     useEffect(()=>{
         getFetchData();
- },[animal,breed]);
+ },[]);
 
 
 
@@ -78,7 +78,7 @@ const Search=()=>{
             {
                 pets.map((pet)=>{
                     return(
-                        <div className="border flex-auto border-spacing-1 hover:animate-bounce bg-blue-100 text-align justify-center flex-row flex">
+                        <div className="border flex-auto border-spacing-1 hover:skew-y-6 bg-blue-100 text-align justify-center flex-row flex">
                          <div className="w-54 grid">   
                         <h3>Name: {pet.name}</h3>
                         <h5>Breed :{pet.breed}</h5>
