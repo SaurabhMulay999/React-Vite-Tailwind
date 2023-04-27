@@ -1,16 +1,20 @@
 import AnimalList from "./AnimalsList";
 import { useState,useEffect } from "react";
+import useBreedList from "./useBreedList";
 
 const Search=()=>{
 
     const [Location,setLocation]=useState('');
 
     const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-    const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
+    //const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
+
 
     const [breed,setBreed]=useState('');
     const [animal, setAnimal]=useState('');
 
+    const[breedLists, status]=useBreedList(animal); 
+    console.log('breeds',breedLists);
 
     const [pets, setPets]=useState([]);
     async function getFetchData(){
@@ -24,6 +28,13 @@ const Search=()=>{
     useEffect(()=>{
         getFetchData();
  },[]);
+ 
+ function FilterData(animal,breed){ 
+
+    const data=pets.filter((pets)=>pets.breed==breed);
+    console.log(data);
+    
+ }
 
 
 
@@ -31,7 +42,7 @@ const Search=()=>{
     return(
         <div className="p-4 flex box-border">
             <div className="border text-center p-4 m-5 ">
-                <form className="grid border-spacing-x-9"> 
+                <form onSubmit={FilterData(animal,breed)} className="grid border-spacing-x-9"> 
                     <label htmlFor="Location">
                         <input  onChange={(e)=>setLocation(e.target.value)} type="text" className="bg-blue-100 w-96 text-black" value={Location} id="Loccation" placeholder="Location"/>
                     </label>
@@ -39,7 +50,13 @@ const Search=()=>{
                     <label htmlFor="Animals">
                         
                         Animals :  
-                        <select id={animal} onChange={(e)=>setAnimal(e.target.value)} value={animal}>
+                        <select id={animal} onChange={(e)=>{
+                            e.preventDefault();
+                            setAnimal(e.target.value);
+                            setBreed(brd);
+                            
+                        }
+                        } value={animal}>
             
                                {
                                 ANIMALS.map((AN)=>{
@@ -58,9 +75,12 @@ const Search=()=>{
 
                     <label htmlFor="Breed">
                         Breed : 
-                        <select onChange={(e)=>{setBreed(e.target.value)}} id={breed} value={breed}>
+                        <select onChange={(e)=>{
+                            e.preventDefault();
+                            setBreed(e.target.value)}} id={breed} value={breed}>
                             {
-                                Breed.map((brd)=>{
+                                
+                                breedLists.map((brd)=>{
                                     return(
                                         <option key={brd} value={brd}>
                                             {brd}
