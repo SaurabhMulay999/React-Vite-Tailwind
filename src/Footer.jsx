@@ -1,12 +1,12 @@
 const Footer=()=>{
     return(
     <>
-    <h1 className="bg-blue-300 border text-2xl"></h1>
+    <h1 classNameName="bg-blue-300 border text-2xl"></h1>
     <div>
-        <div className="bg-blue-100 text-center p-2 m-2  ">
-            <h4>Thanks for Your Contribution</h4>
+        <div classNameName="bg-blue-200  text-center p-2 m-2  ">
+            <h4 classNameName="text-black hover:text-xl">Thanks for Your Contribution</h4>
             <br/>
-            <h5 className="bg-blue-100">“Many animal rescue organizations hit with a hard-core, heartbreaking message. Their videos and stories can become difficult for average people to watch. By taking a more positive, heartwarming approach to animal rescue, I’ve been able to engage people and keep them engaged for years. Instead of selling the agony and misery – and sadly, there is no shortage of that – I start with the happy endings. I work backwards so the first message they get is joy and success due to their involvement. Opening the mind with humor and joy gets the rescue message in that much deeper.” — Elayne Boosler</h5>
+            <h5 classNameName="bg-blue-100">“Many animal rescue organizations hit with a hard-core, heartbreaking message. Their videos and stories can become difficult for average people to watch. By taking a more positive, heartwarming approach to animal rescue, I’ve been able to engage people and keep them engaged for years. Instead of selling the agony and misery – and sadly, there is no shortage of that – I start with the happy endings. I work backwards so the first message they get is joy and success due to their involvement. Opening the mind with humor and joy gets the rescue message in that much deeper.” — Elayne Boosler</h5>
         </div>
         <div>
             
@@ -15,6 +15,54 @@ const Footer=()=>{
     
     </>
     )
+}
+export const Footer1 =()=>{
+    return (
+        <>
+        <footer className="relative bg-blueGray-200 pt-8 pb-6">
+        <div className="container mx-auto px-4">
+            <div className="flex flex-wrap text-left lg:text-left">
+            <div className="w-full lg:w-6/12 px-4">
+                <h4 className="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>
+                <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
+                Find us on any of these platforms, we respond 1-2 business days.
+                </h5>
+                <div className="mt-6 lg:mb-0 mb-6">
+                <button className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i className="fab fa-twitter"></i></button><button className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i className="fab fa-facebook-square"></i></button><button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i className="fab fa-dribbble"></i></button><button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <i className="fab fa-github"></i>
+                </button>
+                </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+                <div className="flex flex-wrap items-top mb-6">
+                <div className="w-full lg:w-4/12 px-4 ml-auto">
+                    <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+                    <ul className="list-unstyled">
+                    <li>
+                        <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">About Us</a>
+                    </li>
+                    <li>
+                        <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">Blog</a>
+                    </li>
+                    <li>
+                        <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">Github</a>
+                    </li>
+                    <li>
+                        <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">Free Products</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+            <hr className="my-6 border-blueGray-300"/>
+        </div>
+        </footer>
+        </>
+)
 }
 
 export default Footer;
