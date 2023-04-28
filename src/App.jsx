@@ -17,7 +17,7 @@ const Heading=()=>{
          <BackGround/>  
          </div>
         </div>
-        <div>
+        <div className="m-5 p-1 border bg-blue-100">
             <Footer1/>
         </div>
 

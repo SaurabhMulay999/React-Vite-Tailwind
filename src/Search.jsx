@@ -108,7 +108,7 @@ const Search=()=>{
                                 <img className="object-cover w-18 rounded-t-lg h-16 p-2 md:rounded-none md:rounded-l-lg" src={pet.images[0]} alt="IMAGE"/>
                                 <div className="flex flex-col justify-between p-1 leading-normal">
                                     <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">{pet.name}</h5>
-                                    <p className="mb-3 font-normal text-black ">{pet.breed}</p>
+                                    <p className="mb-3 font-normal text-black ">{pet.breed.length>10?pet.breed.slice(0,10):pet.breed}</p>
                                 </div>
                             </a>
                         </div>
