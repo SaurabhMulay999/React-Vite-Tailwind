@@ -28,7 +28,7 @@ export const Footer1 =()=>{
         <div className="container bg-blue-100 mx-auto px-4">
             <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full border lg:w-6/12 px-4">
-                <h4 className="text-3xl fonat-semibold text-blueGray-700">{arr.map((arr)=><h4 className="hover:animate-bounce p-2 inline-flex bg-gray-100" >{arr}</h4>)}</h4>
+                <h4 className="text-3xl fonat-semibold text-blueGray-700">{arr.map((arr)=><h4 className="hover:animate-bounce p-1 inline-flex bg-gray-100" >{arr}</h4>)}</h4>
                 <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
                 Find us on any of these platforms, we respond 1-2 business days.
                 </h5>
@@ -42,7 +42,7 @@ export const Footer1 =()=>{
             <div className="w-full lg:w-6/12 px-4">
                 <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
-                    <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">{useFul.map((u)=><h4 className="hover:animate-bounce p-2 inline-flex bg-gray-100" >{u}</h4>)}</span>
+                    <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">{useFul.map((u)=><h4 className="hover:animate-bounce p-1 inline-flex bg-gray-100" >{u}</h4>)}</span>
                     <ul className="list-unstyled">
                     <li>
                         <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">About Us</a>

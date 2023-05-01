@@ -3,14 +3,16 @@ import { useState,useEffect } from "react";
 import useBreedList from "./useBreedList";
 import './ul.css';
 import ShimmerUI from "./ShimmerUI";
-
+let CacheAnimals={};
 
 
 const Search=()=>{
 
+    
+
     const [Location,setLocation]=useState('');
 
-    const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+    const ANIMALS = ["", "bird", "cat", "dog", "rabbit", "reptile"];
     //const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
 
 
@@ -22,10 +24,19 @@ const Search=()=>{
 
     const [pets, setPets]=useState([]);
     async function getFetchData(){
+        console.log("cache",CacheAnimals[animal])
+       
+        if(CacheAnimals[animal]){
+            setPets(CacheAnimals[animal]);
+        }
+        else{
         const data=await fetch(`https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${Location}&breed=${breed}`);
         const JSON=await data.json();
         setPets(JSON.pets);
-        console.log(JSON);
+        CacheAnimals[animal]=JSON.pets;
+        }
+        
+        //console.log(JSON);
 
     }
 
@@ -54,7 +65,7 @@ const Search=()=>{
                     <label htmlFor="Animals">
                         
                         Animals :  
-                        <select id={animal} onChange={(e)=>{
+                        <select id={animal} defaultValue="None" onChange={(e)=>{
                             e.preventDefault();
                             setAnimal(e.target.value);
                             setBreed(brd);
@@ -101,7 +112,7 @@ const Search=()=>{
 
             {
                 pets.length==0?(
-                   <ShimmerUI/>
+                   <ShimmerUI animal={animal}/>
                 )
                 :
                 pets.map((pet)=>{
