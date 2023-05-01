@@ -14,29 +14,39 @@ const Search=()=>{
 
     const ANIMALS = ["", "bird", "cat", "dog", "rabbit", "reptile"];
     //const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
-
-
     const [breed,setBreed]=useState('');
     const [animal, setAnimal]=useState('');
+    const[filterPets, setFilterPets]=useState([]);
 
     const[breedLists, status]=useBreedList(animal); 
     console.log('breeds',breedLists);
 
     const [pets, setPets]=useState([]);
+    function filterPetsData(filterPets,breed){
+        
+        const data=filterPets.filter((pets)=>{
+            if(pets[0].breed==breed){
+                return pets[0];
+            }
+        });
+        console.log("filterdata",data);
+        setFilterPets(data);
+    }
+
     async function getFetchData(){
-        console.log("cache",CacheAnimals[animal])
+        //console.log("cache",CacheAnimals[animal])
        
         if(CacheAnimals[animal]){
             setPets(CacheAnimals[animal]);
+            setFilterPets(CacheAnimals[animal]);
         }
         else{
         const data=await fetch(`https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${Location}&breed=${breed}`);
         const JSON=await data.json();
         setPets(JSON.pets);
+        setFilterPets(JSON.pets);
         CacheAnimals[animal]=JSON.pets;
         }
-        
-        //console.log(JSON);
 
     }
 
@@ -44,9 +54,9 @@ const Search=()=>{
         getFetchData();
  },[animal,breed]);
  
- function FilterData(animal,breed){ 
+ function FilterData(filterPets,breed){ 
 
-    const data=pets.filter((pets)=>pets.breed==breed);
+   // const data=filterPets
     console.log(data);
     
  }
@@ -57,7 +67,7 @@ const Search=()=>{
     return(
         <div classNameName="p-4 flex box-border">
             <div classNameName="border text-center p-4 m-5 ">
-                <form  className="p-2 m-1" onSubmit={FilterData(animal,breed)} classNameName="grid border-spacing-x-9"> 
+                <form  className="p-2 m-1"> 
                     <label htmlFor="Location">
                         <input  onChange={(e)=>setLocation(e.target.value)} type="text" classNameName="bg-blue-100 w-96 text-black" value={Location} id="Loccation" placeholder="Location"/>
                     </label>
@@ -92,7 +102,9 @@ const Search=()=>{
                         Breed : 
                         <select onChange={(e)=>{
                             e.preventDefault();
-                            setBreed(e.target.value)}} id={breed} value={breed}>
+                            setBreed(e.target.value)
+                            filterPetsData(filterPets,breed);
+                            }} id={breed} value={breed}>
                             {
                                 
                                 breedLists.map((brd)=>{
@@ -115,7 +127,7 @@ const Search=()=>{
                    <ShimmerUI animal={animal}/>
                 )
                 :
-                pets.map((pet)=>{
+                filterPets.map((pet)=>{
                     return(
                         <li className="p-8">
                         <div className="p-1 m-1 ">
