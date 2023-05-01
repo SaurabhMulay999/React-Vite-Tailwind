@@ -1,7 +1,8 @@
 li{
     float: left;
     position: relative;
-    margin-right:10px;
+    margin-right:1px;
+    margin: 1px;
     list-style-type: none;
 
 }

@@ -61,7 +61,7 @@ export const Footer1 =()=>{
                 </div>
             </div>
             </div>
-            <hr className="my-6 border-blueGray-300"/>
+            <hr className="my-6 border-gray-100"/>
         </div>
         </footer>
         </>

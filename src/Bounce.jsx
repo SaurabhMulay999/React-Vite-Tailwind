@@ -4,9 +4,7 @@ const Bounce=()=>{
     return(
     <>
     <div className="bg-white text-xs text-right">
-        <button className="bg-gray-100 hover:text-2xl" onClick={()=>{
-            setdark('black');
-        }}>Enable Dark Mode</button>
+        <button className="bg-gray-100 hover:text-2xl">Enable Dark Mode</button>
     </div>
     <div className="text-center">
     {bounce.map((ch)=><Title key={ch+Math.random(0.1)} h11={ch}/>)}

@@ -7,8 +7,10 @@ import BackGround from "./BackGround";
 
 
 const Heading=()=>{
+    const [darkMode, SetDarkMode]=useState('gray');
     return(
         <>  
+        <div className="">
         <div className="p-1 m-1">
          <div className="m-1 p-1 bg-grey-200 border border-dotted">   
          <NavBar/>
@@ -17,10 +19,10 @@ const Heading=()=>{
          <BackGround/>  
          </div>
         </div>
-        <div className="m-5 p-1 border bg-blue-100">
+        <div className="m-5 border bg-blue-100">
             <Footer1/>
         </div>
-
+        </div>
         </>
     )
 };
