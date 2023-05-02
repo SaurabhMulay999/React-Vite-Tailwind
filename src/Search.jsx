@@ -23,9 +23,9 @@ const Search=()=>{
 
     const [pets, setPets]=useState([]);
     function filterPetsData(filterPets,breed){
-        
+        let breed1=breed || "";
         const data=filterPets.filter((pets)=>{
-            if(pets[0].breed==breed){
+            if(pets[0].breed.includes(breed1)){
                 return pets[0];
             }
         });
@@ -60,18 +60,14 @@ const Search=()=>{
     console.log(data);
     
  }
-
-
-
-
     return(
-        <div classNameName="p-4 flex box-border">
-            <div classNameName="border text-center p-4 m-5 ">
-                <form  className="p-2 m-1"> 
+        <div className="">
+            <div className="border text-center">
+                <form className="p-2 m-1"> 
                     <label htmlFor="Location">
-                        <input  onChange={(e)=>setLocation(e.target.value)} type="text" classNameName="bg-blue-100 w-96 text-black" value={Location} id="Loccation" placeholder="Location"/>
+                        <input  onChange={(e)=>setLocation(e.target.value)} type="text" className="bg-blue-100 w-96 text-black" value={Location} id="Loccation" placeholder="Location"/>
                     </label>
-                    <div classNameName="m-2  space-x-5 p-1">
+                    <div className="m-2  space-x-5 p-1">
                     <label htmlFor="Animals">
                         
                         Animals :  
@@ -102,8 +98,9 @@ const Search=()=>{
                         Breed : 
                         <select onChange={(e)=>{
                             e.preventDefault();
+                            console.log("breed changes filter it")
                             setBreed(e.target.value)
-                            filterPetsData(filterPets,breed);
+                            filterPetsData(filterPets,e.target.value);
                             }} id={breed} value={breed}>
                             {
                                 
@@ -118,7 +115,7 @@ const Search=()=>{
                         </select>
                     </label>
                     </div>
-                    <button onClick={()=>console.log('clicked')} classNameName="bg-blue-300 text-xs m-3 p-2 hover:text-rose-900 text-black">Submit</button>
+                    <button className="bg-blue-300 text-xs m-3 p-2 hover:text-rose-900 text-black">Submit</button>
                 </form>
             </div>
 
@@ -129,7 +126,7 @@ const Search=()=>{
                 :
                 filterPets.map((pet)=>{
                     return(
-                        <li className="p-8">
+                        <li key={Math.random(0.1)} className="p-8">
                         <div className="p-1 m-1 ">
                             <a href="#" className="flex flex-wrap flex-col-2 bg-white border border-blue-200 rounded-lg shadow  w-52 hover:bg-blue-100 dark:border-gray-700 dark:bg-blue-300 h-16 dark:hover:bg-blue-200">
                                 <img className="object-cover w-18 rounded-t-lg h-16 p-2 md:rounded-none md:rounded-l-lg" src={pet.images[0]} alt="IMAGE"/>
