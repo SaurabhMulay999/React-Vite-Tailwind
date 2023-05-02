@@ -5,22 +5,15 @@ import './ul.css';
 import ShimmerUI from "./ShimmerUI";
 let CacheAnimals={};
 
-
 const Search=()=>{
-
-    
-
     const [Location,setLocation]=useState('');
-
     const ANIMALS = ["", "bird", "cat", "dog", "rabbit", "reptile"];
     //const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
     const [breed,setBreed]=useState('');
     const [animal, setAnimal]=useState('');
     const[filterPets, setFilterPets]=useState([]);
-
     const[breedLists, status]=useBreedList(animal); 
     console.log('breeds',breedLists);
-
     const [pets, setPets]=useState([]);
     function filterPetsData(filterPets,breed){
         let breed1=breed || "";
@@ -47,19 +40,15 @@ const Search=()=>{
         setFilterPets(JSON.pets);
         CacheAnimals[animal]=JSON.pets;
         }
-
     }
-
     useEffect(()=>{
         getFetchData();
  },[animal,breed]);
  
  function FilterData(filterPets,breed){ 
-
    // const data=filterPets
     console.log(data);
-    
- }
+}
     return(
         <div className="">
             <div className="border text-center">
@@ -81,17 +70,14 @@ const Search=()=>{
             
                                {
                                 ANIMALS.map((AN)=>{
-
                                     return(
-                                    
                                     <option key={AN} value={AN}>
                                         {AN}
                                     </option>
                                     )
                             })
                             }
-                        </select>  
-                        
+                        </select>                       
                     </label>
 
                     <label htmlFor="Breed">
@@ -138,10 +124,6 @@ const Search=()=>{
                         </div>
                         
                         </li>
-
-                        
-
-
                     )
                 })
             }
