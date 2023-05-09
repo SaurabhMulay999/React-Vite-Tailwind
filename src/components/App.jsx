@@ -5,7 +5,9 @@ import Footer,{Footer1} from "./Footer";
 import NavBar from "./NavBar";
 import BackGround from "./BackGround";
 import Contact from "./Contact";
+import ShowAnimal from "./ShowAnimal";
 import About from "./About";
+import Error from "./Error";
 import {createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
 
 //configaration of router
@@ -16,18 +18,20 @@ const Heading=()=>{
     return(
         <>  
         <div className="">
-            <div className="p-1 m-1">
-                <div className="m-1 p-1 bg-grey-200 border border-dotted">   
+            <div className=" grid m-1">
+                <div className="bg-grey-200 p-1 border border-dotted">   
                     <NavBar/>
                 </div>
-            <div className="m-1 p-1 border bg-blue-400">
+            <div className=" border  bg-blue-100">
                 <Outlet/>  
             </div>
+            
         </div>
-        <div className="m-5 border bg-blue-100">
+        <div className="border p-1 bg-blue-100">
             <Footer1/>
             </div>
         </div>
+       
         </>
     )
 };
@@ -35,6 +39,7 @@ const AppRouter=createBrowserRouter([
     {
         path:"/",
         element:<Heading/>,
+        errorElement:<Error/>,
         children:
         [
             {
@@ -48,10 +53,14 @@ const AppRouter=createBrowserRouter([
             {
                 path:"/",
                 element:<BackGround/>
+            },
+            {
+                path:"/animal/:name",
+                element:<ShowAnimal/>,
             }
         ]
-        
-    }
+    },
+  
 ])
 
 

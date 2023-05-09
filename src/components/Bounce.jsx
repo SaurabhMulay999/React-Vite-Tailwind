@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import Title from "./Title";
 const bounce=['A','N','I','M','A','L','  ','A','D','O','P','T','I','O','N'];
 const Bounce=()=>{
@@ -11,9 +12,21 @@ const Bounce=()=>{
     </div>
     
     <div className=" grid grid-cols-3  border justify-right ">
-        <button key="bt1" className="bg-blue-300 hover:animate-pulse "  label="About Us">About Us</button>
-        <button  key="bt2" className="bg-blue-200 hover:animate-pulse "  label="Contact Us">Contact Us</button>
-        <button key="bt3" className="bg-blue-100 hover:animate-pulse "  label="Help">Help</button>    
+        
+        <Link to="/" className="bg-slate-100 hover:animate-pulse" >
+        <button key="bt3"  label="Help">Home</button>    
+        </Link>
+        
+        <Link to="/about" className="bg-red-100 hover:animate-pulse " >
+        <button key="bt1"  label="About Us">About Us</button>
+        </Link>
+        
+        <Link to="/contact"  className="bg-blue-100 hover:animate-pulse ">
+        <button  key="bt2"  label="Contact Us">Contact Us</button>
+        </Link>
+        
+        
+    
     </div>
     </>
     );

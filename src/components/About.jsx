@@ -1,6 +1,8 @@
 const About=()=>{
     let str="About Us";
     let arr=[...str];
+    let string_1="Animal welfare";
+    let StrArr=[...string_1];
     return(
         <>
         <div className="grid grid-cols-1 grid-row-4">
@@ -11,8 +13,12 @@ const About=()=>{
             }
             </div>
             <div className="m-24 p-10">
-            <div className=" border-blue-100 w-full h-56 flex-auto border text-center flex m- p-12">
-                <h1 className="text-4xl p-1 font-bold text-gray-900">Animal wellfare</h1>
+            <div className=" border-blue-100 w-full h-46  flex-auto border text-center flex  p-12">
+                <h3 className="text-xl p-1 w-96 font-bold text-gray-900">
+                    {
+                        StrArr.map((ele)=><h4 className="inline-flex">{ele}</h4>)
+                    }
+                </h3>
                 <p className="text-xs font-serif text-gray-800">Cruelty to animals has become a nationwide problem nowadays. The government has already imposed a few laws and a few more are needed. Along with that, social awareness is also required. Students should learn how to treat animals in schools. Parents should also treat their pets well and teach their children. Our planet Earth is a very beautiful place. Here, all the living organisms are dependent on each other and live together. We, humans, are considered the most intelligent species on Earth. But, we sometimes become very insensitive to the creatures who cannot express themselves, especially the animals. We harm them just to fulfil our needs.</p>
 
             </div>

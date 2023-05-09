@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import useBreedList from "./useBreedList";
 import './ul.css';
 import ShimmerUI from "./ShimmerUI";
+import { Link } from "react-router-dom";
 let CacheAnimals={};
 
 const Search=()=>{
@@ -108,7 +109,8 @@ const Search=()=>{
                 :
                 filterPets.map((pet)=>{
                     return(
-                        <li key={Math.random(0.1)} className="p-8">
+                        <Link to={'animal/'+ pet.name} key={Math.random(0.2)}>
+                        <li key={Math.random(0.1)} >
                         <div className="p-1 m-1 ">
                             <a href="#" className="flex flex-wrap flex-col-2 bg-white border border-blue-200 rounded-lg shadow  w-52 hover:bg-blue-100 dark:border-gray-700 dark:bg-blue-300 h-16 dark:hover:bg-blue-200">
                                 <img className="object-cover w-18 rounded-t-lg h-16 p-2 md:rounded-none md:rounded-l-lg" src={pet.images[0]} alt="IMAGE"/>
@@ -119,6 +121,7 @@ const Search=()=>{
                             </a>
                         </div>
                         </li>
+                        </Link>
                     )
                 })
             }
