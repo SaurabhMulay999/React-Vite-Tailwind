@@ -1,11 +1,14 @@
 import {Link} from "react-router-dom";
+import { useState } from "react";
 import Title from "./Title";
 const bounce=['A','N','I','M','A','L','  ','A','D','O','P','T','I','O','N'];
-const Bounce=()=>{
+const Bounce=(props)=>{
+
     return(
     <>
     <div className="bg-white text-xs text-right">
-        <button className="bg-gray-100 hover:text-2xl">Enable Dark Mode</button>
+        <button className="bg-gray-100 hover:text-2xl" onClick={()=>{props.childParent('black')}}>Enable Dark Mode</button>
+        
     </div>
     <div className="text-center">
     {bounce.map((ch)=><Title key={ch+Math.random(0.1)} h11={ch}/>)}

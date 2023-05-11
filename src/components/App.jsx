@@ -14,15 +14,21 @@ import {createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
 
 
 const Heading=()=>{
-    const [darkMode, SetDarkMode]=useState('gray');
+    const [darkMode, SetDarkMode]=useState('white');
+    function childParentComm(e){
+        SetDarkMode(e);
+        //e is not an event
+    }
+
     return(
         <>  
         <div className="">
             <div className=" grid m-1">
-                <div className="bg-grey-200 p-1 border border-dotted">   
-                    <NavBar/>
+                <button className="bg-gray hover:text-xl" onClick={()=>SetDarkMode('white')} >Reset Dark Mode</button>
+                <div className="bg-grey-200 p-1 border border-dotted" style={{background:darkMode,backgroundColor:darkMode}}>   
+                    <NavBar childParentComm={childParentComm}/>
                 </div>
-            <div className=" border  bg-blue-100">
+            <div className=" border  bg-blue-200" style={{background:darkMode}}>
                 <Outlet/>  
             </div>
             

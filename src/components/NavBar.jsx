@@ -1,8 +1,17 @@
 import Bounce from "./Bounce";
-const NavBar=()=>{
+import { useState } from "react";
+const NavBar=(props)=>{
+    const[darkmode,setdarkmode]=useState('white');
+    const childParent =(e)=>{
+        setdarkmode(e);
+        props.childParentComm(darkmode);
+
+    }
+
+
     return (
         <div className="border  bg-blue-100 bg-left" >
-            <Bounce/>
+            <Bounce  childParent={childParent}/>
         </div>
     )
 }

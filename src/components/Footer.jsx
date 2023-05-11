@@ -25,6 +25,7 @@ export const Footer1 =()=>{
     
     return (
         <>
+        <div className="">
         <footer className="relative bg-blueGray-500 border pt-8 pb-6">
         <div className="container bg-blue-100 mx-auto px-4">
             <div className="flex flex-wrap text-left lg:text-left">
@@ -65,6 +66,7 @@ export const Footer1 =()=>{
             <hr className="my-6 border-gray-100"/>
         </div>
         </footer>
+        </div>
         </>
 )
 }

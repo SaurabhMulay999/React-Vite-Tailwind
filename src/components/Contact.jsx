@@ -5,7 +5,7 @@ const Contact=()=>{
     const[Email, setEmail]=useState('');
     return(
         
-        <div className="bg-blue-100 w-96 h-full">
+        <div className="bg-blue-300 w-96 h-full">
         <h1 className="text-2xl font-serif">Contact Us</h1>
         <form>
             <div className="grid border border-gray-400 p-14 w-96 ">
@@ -16,7 +16,7 @@ const Contact=()=>{
                 Email:  <input className="m-2" value={Email} id="input2" onChange={(e)=>setEmail(e.target.value)} type="text"></input>
             </label>
             </div>
-            <button className="m-2 p-2">Submit</button>
+            <button className="m-2 border  p-2">Submit</button>
 
         </form>
         </div>
