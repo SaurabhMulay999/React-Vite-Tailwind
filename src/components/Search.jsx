@@ -4,9 +4,23 @@ import useBreedList from "./useBreedList";
 import './ul.css';
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
+import Internet from "./Internet";
+
+import useInternet from '../shared/useInternet';
 let CacheAnimals={};
 
+let cacheBreedWithAnimal={};
+
+
 const Search=()=>{
+
+
+    const online=useInternet();
+    console.log("Online",online);
+
+    // if(!online){
+    //     return <Internet/>;
+    // }
     const [Location,setLocation]=useState('');
     const ANIMALS = ["", "bird", "cat", "dog", "rabbit", "reptile"];
     //const Breed= ['German','French','Indian','Latine','Chartreux','American Longhair','Domestic Shorthair'];
@@ -42,16 +56,34 @@ const Search=()=>{
     }
     useEffect(()=>{
         getFetchData();
- },[animal,breed]);
+ },[animal, breed]);
  
  function FilterData(filterPets,breed){ 
    // const data=filterPets
     console.log(data);
 }
-    return(
+
+// async function GetFilteredData(animal,breed){
+//     console.log(cacheBreedWithAnimal[breed]);
+//     if(cacheBreedWithAnimal[breed]==undefined){
+//         const data=await fetch(`https://pets-v2.dev-apis.com/pets?animal=${animal}&breed=${breed}`);
+//         const data1=await data.json();
+//         cacheBreedWithAnimal[breed]=data1.pets;
+//         setPets(data1.pets);
+//     }
+//     else{
+//         setPets(cacheBreedWithAnimal[breed]);
+//     }
+
+
+// }
+return(
+(!online)?<Internet/>:
+
+    (
         <div className="">
             <div className="border text-center">
-                <form className="p-2 m-1"> 
+                <form className="p-2 m-1" onSubmit={(e)=>{e.preventDefault()/*GetFilteredData(animal,breed)*/}}> 
                     <label htmlFor="Location">
                         <input  onChange={(e)=>setLocation(e.target.value)} type="text" className="bg-blue-100 w-96 text-black" value={Location} id="Loccation" placeholder="Location"/>
                     </label>
@@ -127,6 +159,7 @@ const Search=()=>{
             }
         </div>
     )
+)
 }
 
 export default Search;

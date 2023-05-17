@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,lazy,Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Footer,{Footer1} from "./Footer";
 import NavBar from "./NavBar";
 import BackGround from "./BackGround";
-import Contact from "./Contact";
+//import Contact from "./Contact";
 import ShowAnimal from "./ShowAnimal";
-import About from "./About";
+//import About from "./About";
 import Error from "./Error";
 import {createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
 
 //configaration of router
 
+
+
+const About =lazy(()=>import('./About'));
+
+const Contact =lazy(()=>import('./Contact'));
 
 const Heading=()=>{
     const [darkMode, SetDarkMode]=useState('white');
@@ -50,11 +55,16 @@ const AppRouter=createBrowserRouter([
         [
             {
                 path:"/about",
-                element:<About/>   
+                element:
+                <Suspense>
+                <About/>  
+                </Suspense> 
             },
             {
                 path:"/contact",
-                element:<Contact/>
+                element: <Suspense>
+                <Contact/>  
+                </Suspense> 
             },
             {
                 path:"/",
