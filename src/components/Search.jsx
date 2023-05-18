@@ -143,9 +143,9 @@ return(
                     return(
                         <Link to={'animal/'+ pet.name} key={Math.random(0.2)}>
                         <li key={Math.random(0.1)} >
-                        <div className="p-1 m-1 ">
-                            <a href="#" className="flex flex-wrap flex-col-2 bg-white border border-blue-200 rounded-lg shadow  w-52 hover:bg-blue-100 dark:border-gray-700 dark:bg-blue-300 h-16 dark:hover:bg-blue-200">
-                                <img className="object-cover w-18 rounded-t-lg h-16 p-2 md:rounded-none md:rounded-l-lg" src={pet.images[0]} alt="IMAGE"/>
+                        <div className="p-8 m-4 ">
+                            <a href="#" className="flex flex-wrap flex-col-2 bg-white border border-blue-200 rounded-lg shadow  w-56 hover:bg-blue-100 dark:border-gray-700 dark:bg-blue-300 h-20 dark:hover:bg-blue-200">
+                                <img className="object-cover w-18 rounded-t-lg h-20 p-2 md:rounded-none md:rounded-l-lg" src={pet.images[0]} alt="IMAGE"/>
                                 <div className="flex flex-col justify-between p-1 leading-normal">
                                     <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">{pet.name}</h5>
                                     <p className="mb-3 font-normal text-black ">{pet.breed.length>10?pet.breed.slice(0,10):pet.breed}</p>
