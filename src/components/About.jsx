@@ -9,7 +9,7 @@ const About=()=>{
         <div className="w-full h-96 border bg-blue-100 flex animate-pulse">
             <div>
             {
-                arr.map((ele)=><h2 className="inline-flex m-3 p-2 font-extrabold text-4xl hover:animate-bounce text-center text-black border-separate">{ele}</h2>)
+                arr.map((ele)=><h2 className="inline-flex  p-8 font-extrabold text-4xl hover:animate-bounce text-center text-black border-separate">{ele}</h2>)
             }
             </div>
             <div className="m-24 p-10">

@@ -28,8 +28,8 @@ const Heading=()=>{
     return(
         <>  
         <div className="">
-            <div className=" grid m-1">
-                <button className="bg-gray hover:text-xl" onClick={()=>SetDarkMode('white')} >Reset Dark Mode</button>
+            <div className=" grid shadow m-1">
+                <button className="bg-gray w-36 text-right flex justify-right hover:text-xs" onClick={()=>SetDarkMode('white')} >Reset Dark Mode</button>
                 <div className="bg-grey-200 p-1 border border-dotted" style={{background:darkMode,backgroundColor:darkMode}}>   
                     <NavBar childParentComm={childParentComm}/>
                 </div>
