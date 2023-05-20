@@ -9,6 +9,7 @@ import ShowAnimal from "./ShowAnimal";
 //import About from "./About";
 import Error from "./Error";
 import {createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
+import Paper from "./Paper";
 
 //configaration of router
 
@@ -42,6 +43,7 @@ const Heading=()=>{
             <Footer1/>
             </div>
         </div>
+        <Paper/>
        
         </>
     )

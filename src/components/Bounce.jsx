@@ -7,7 +7,7 @@ const Bounce=(props)=>{
     return(
     <>
     <div className="bg-white text-xs text-right">
-        <button className="bg-gray-100 hover:text-2xl" onClick={()=>{props.childParent('black')}}>Enable Dark Mode</button>
+        <button className="bg-gray-100 cursor-pointer hover:text-2xl" onClick={()=>{props.childParent('black')}}>Enable Dark Mode</button>
         
     </div>
     <div className="text-center">
@@ -16,15 +16,15 @@ const Bounce=(props)=>{
     
     <div className=" grid grid-cols-3  border justify-right ">
         
-        <Link to="/" className="bg-slate-100 hover:animate-pulse" >
+        <Link to="/" className="bg-slate-100 cursor-pointer border-gray-950 hover:animate-pulse" >
         <button key="bt3"  label="Help">Home</button>    
         </Link>
         
-        <Link to="/about" className="bg-red-100 hover:animate-pulse " >
+        <Link to="/about" className="bg-red-100 border-pink-900 cursor-pointer hover:animate-pulse " >
         <button key="bt1"  label="About Us">About Us</button>
         </Link>
         
-        <Link to="/contact"  className="bg-blue-100 hover:animate-pulse ">
+        <Link to="/contact"  className="bg-blue-100 border cursor-pointer hover:animate-pulse ">
         <button  key="bt2"  label="Contact Us">Contact Us</button>
         </Link>
         
