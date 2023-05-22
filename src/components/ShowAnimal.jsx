@@ -1,6 +1,9 @@
 import { useEffect,useState } from "react";
 import { useParams} from "react-router-dom";
 const cacheList={};
+//import { useDispatch } from "react";
+import { useDispatch } from "react-redux";
+import {addAnimalToBucket} from '../utils/BucketSlice';
 const  ShowAnimal=()=>{
     
     const[animal,setAnimal]=useState({});
@@ -34,6 +37,12 @@ const  ShowAnimal=()=>{
     return null;
    }
 
+   const dispatchAction=useDispatch();
+   function addToPetBucket(animal){
+    dispatchAction(addAnimalToBucket(animal));
+
+   }
+
     return (
         <>
         <div className="w-full h-full">        
@@ -51,6 +60,7 @@ const  ShowAnimal=()=>{
             <h1 className="text-gray-800">I am at , {animal?.city}, {animal?.state}</h1>
 
         </div>
+        <button className="bg-green-100 p-2 m-2" onClick={()=>addToPetBucket(animal)}>Add to the Pet Bucket</button>
         </div>
         </>
 
