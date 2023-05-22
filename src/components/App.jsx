@@ -10,6 +10,10 @@ import ShowAnimal from "./ShowAnimal";
 import Error from "./Error";
 import {createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
 import Paper from "./Paper";
+import Login from './Login';
+import store from '../utils/store';
+import Bucket from "./Bucket";
+import { Provider } from "react-redux";
 
 //configaration of router
 
@@ -28,6 +32,7 @@ const Heading=()=>{
 
     return(
         <>  
+        <Provider store={store}>
         <div className="">
             <div className=" grid shadow m-1">
                 <button className="bg-gray w-36 text-right flex justify-right hover:text-xs" onClick={()=>SetDarkMode('white')} >Reset Dark Mode</button>
@@ -43,7 +48,8 @@ const Heading=()=>{
             <Footer1/>
             </div>
         </div>
-        <Paper/>
+        
+        </Provider>
        
         </>
     )
@@ -75,6 +81,17 @@ const AppRouter=createBrowserRouter([
             {
                 path:"/animal/:name",
                 element:<ShowAnimal/>,
+            },
+            {
+                path:"/login",
+                element:<Login/>
+            },{
+                path:'/bucket',
+                element:<Bucket/>
+            },
+            {
+                path:'/paper',
+                element:<Paper/>
             }
         ]
     },

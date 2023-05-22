@@ -1,6 +1,6 @@
 import AnimalList from "./AnimalsList";
 import { useState,useEffect } from "react";
-import useBreedList from "./useBreedList";
+import useBreedList from "../shared/useBreedList";
 import './ul.css';
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -150,7 +150,7 @@ return(
                                     <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">{pet.name}</h5>
                                     <p className="mb-3 font-normal text-black ">{pet.breed.length>10?pet.breed.slice(0,10):pet.breed}</p>
                                 </div>
-                            </a>
+                            </a> 
                         </div>
                         </li>
                         </Link>
