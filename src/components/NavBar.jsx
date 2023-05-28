@@ -22,7 +22,7 @@ const NavBar=(props)=>{
             <Bounce  childParent={childParent}/>
             <div className="m-2 grid pl-[1250px]">
             <h2 className="pl-8 text-2xl hover:animate-pulse">{bucketSize.length}</h2>
-            <Link to='/bucket'>
+            <Link to='/Heading/bucket'>
             <button><img className="w-12 h-12 " src="https://cdn-icons-png.flaticon.com/512/3081/3081840.png"></img></button>
             </Link>
             </div>

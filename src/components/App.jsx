@@ -14,6 +14,7 @@ import Login from './Login';
 import store from '../utils/store';
 import Bucket from "./Bucket";
 import { Provider } from "react-redux";
+import Blogpost from "./Blogpost";
 
 //configaration of router
 
@@ -54,43 +55,60 @@ const Heading=()=>{
         </>
     )
 };
-const AppRouter=createBrowserRouter([
+const AppRouter=createBrowserRouter(
+[
     {
         path:"/",
+        element:<Login/>
+    },
+
+    {
+        path:"/Blogpost",
+        element:<Provider store={store}><Blogpost/></Provider>
+        
+    },
+
+
+    {
+        path:"/Heading",
         element:<Heading/>,
         errorElement:<Error/>,
         children:
         [
+            // {
+            //     path:"/Heading",
+            //     element:<Suspense><Heading/></Suspense>,
+            // },
             {
-                path:"/about",
+                path:"/Heading/about",
                 element:
                 <Suspense>
                 <About/>  
                 </Suspense> 
             },
             {
-                path:"/contact",
+                path:"/Heading/contact",
                 element: <Suspense>
                 <Contact/>  
                 </Suspense> 
             },
             {
-                path:"/",
+                path:"/Heading",
                 element:<BackGround/>
             },
             {
-                path:"/animal/:name",
+                path:"/Heading/animal/:name",
                 element:<ShowAnimal/>,
             },
             {
-                path:"/login",
+                path:"/Heading/login",
                 element:<Login/>
             },{
-                path:'/bucket',
+                path:'/Heading/bucket',
                 element:<Bucket/>
             },
             {
-                path:'/paper',
+                path:'/Heading/paper',
                 element:<Paper/>
             }
         ]
