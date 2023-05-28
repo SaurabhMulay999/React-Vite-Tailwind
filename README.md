@@ -1,6 +1,9 @@
 # React-Vite-Tailwind
 React with ViteJs and Tailwind 
 
+# login page
+ ![image](https://github.com/SaurabhMulay999/React-Vite-Tailwind/assets/90036775/be443aaa-4977-433b-8f39-40d9e86e3184)
+
 # Landing Page
 ![image](https://github.com/SaurabhMulay999/React-Vite-Tailwind/assets/90036775/16151478-0698-456a-9534-3490f4574dd0)
 
@@ -15,3 +18,9 @@ React with ViteJs and Tailwind
 
 # Shimmer
 ![image](https://github.com/SaurabhMulay999/React-Vite-Tailwind/assets/90036775/88504a2f-cb5d-4949-909d-7281cd564423)
+
+# BlogPost
+![image](https://github.com/SaurabhMulay999/React-Vite-Tailwind/assets/90036775/0449bbfb-65ab-435a-ac8d-b8a1bf00fd5a)
+
+
+
